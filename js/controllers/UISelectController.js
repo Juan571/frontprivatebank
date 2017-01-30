@@ -36,7 +36,7 @@ angular.module('BankInterApp').filter('propsFilter', function() {
     };
 });
 
-angular.module('MetronicApp').controller('UISelectController', function($scope, $http, $timeout) {
+angular.module('BankInterApp').controller('UISelectController', function($scope, $http, $timeout) {
     $scope.$on('$viewContentLoaded', function() {
         App.initAjax(); // initialize core components
     });
@@ -76,65 +76,7 @@ angular.module('MetronicApp').controller('UISelectController', function($scope, 
 
     };
 
-    $scope.personAsync = {
-        selected: "wladimir@email.com"
-    };
-    $scope.peopleAsync = [];
-
-    $timeout(function() {
-        $scope.peopleAsync = [{
-            name: 'Adam',
-            email: 'adam@email.com',
-            age: 12,
-            country: 'United States'
-        }, {
-            name: 'Amalie',
-            email: 'amalie@email.com',
-            age: 12,
-            country: 'Argentina'
-        }, {
-            name: 'Estefanía',
-            email: 'estefania@email.com',
-            age: 21,
-            country: 'Argentina'
-        }, {
-            name: 'Adrian',
-            email: 'adrian@email.com',
-            age: 21,
-            country: 'Ecuador'
-        }, {
-            name: 'Wladimir',
-            email: 'wladimir@email.com',
-            age: 30,
-            country: 'Ecuador'
-        }, {
-            name: 'Samantha',
-            email: 'samantha@email.com',
-            age: 30,
-            country: 'United States'
-        }, {
-            name: 'Nicole',
-            email: 'nicole@email.com',
-            age: 43,
-            country: 'Colombia'
-        }, {
-            name: 'Natasha',
-            email: 'natasha@email.com',
-            age: 54,
-            country: 'Ecuador'
-        }, {
-            name: 'Michael',
-            email: 'michael@email.com',
-            age: 15,
-            country: 'Colombia'
-        }, {
-            name: 'Nicolás',
-            email: 'nicole@email.com',
-            age: 43,
-            country: 'Colombia'
-        }];
-    }, 3000);
-
+   
     $scope.counter = 0;
     $scope.someFunction = function(item, model) {
         $scope.counter++;
@@ -151,58 +93,7 @@ angular.module('MetronicApp').controller('UISelectController', function($scope, 
         };
     };
 
-    $scope.person = {};
-    $scope.people = [{
-        name: 'Adam',
-        email: 'adam@email.com',
-        age: 12,
-        country: 'United States'
-    }, {
-        name: 'Amalie',
-        email: 'amalie@email.com',
-        age: 12,
-        country: 'Argentina'
-    }, {
-        name: 'Estefanía',
-        email: 'estefania@email.com',
-        age: 21,
-        country: 'Argentina'
-    }, {
-        name: 'Adrian',
-        email: 'adrian@email.com',
-        age: 21,
-        country: 'Ecuador'
-    }, {
-        name: 'Wladimir',
-        email: 'wladimir@email.com',
-        age: 30,
-        country: 'Ecuador'
-    }, {
-        name: 'Samantha',
-        email: 'samantha@email.com',
-        age: 30,
-        country: 'United States'
-    }, {
-        name: 'Nicole',
-        email: 'nicole@email.com',
-        age: 43,
-        country: 'Colombia'
-    }, {
-        name: 'Natasha',
-        email: 'natasha@email.com',
-        age: 54,
-        country: 'Ecuador'
-    }, {
-        name: 'Michael',
-        email: 'michael@email.com',
-        age: 15,
-        country: 'Colombia'
-    }, {
-        name: 'Nicolás',
-        email: 'nicolas@email.com',
-        age: 43,
-        country: 'Colombia'
-    }];
+    
 
     $scope.availableColors = ['Red', 'Green', 'Blue', 'Yellow', 'Magenta', 'Maroon', 'Umbra', 'Turquoise'];
 
@@ -210,8 +101,7 @@ angular.module('MetronicApp').controller('UISelectController', function($scope, 
     $scope.multipleDemo.colors = ['Blue', 'Red'];
     $scope.multipleDemo.selectedPeople = [$scope.people[5], $scope.people[4]];
     $scope.multipleDemo.selectedPeopleWithGroupBy = [$scope.people[8], $scope.people[6]];
-    $scope.multipleDemo.selectedPeopleSimple = ['samantha@email.com', 'wladimir@email.com'];
-
+ 
 
     $scope.address = {};
     $scope.refreshAddresses = function(address) {
