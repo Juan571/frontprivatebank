@@ -2,10 +2,11 @@ BankInterApp = angular.module('BankInterApp').controller('DashboardController', 
     $scope.$on('$viewContentLoaded', function() {   
         // initialize core components
         App.initAjax();
+        DashboardCharts().init();
     });
 
     // set sidebar closed and body solid layout mode
     $rootScope.settings.layout.pageContentWhite = true;
     $rootScope.settings.layout.pageBodySolid = false;
-    $rootScope.settings.layout.pageSidebarClosed = true;
+    $rootScope.settings.layout.pageSidebarClosed = false;
 });

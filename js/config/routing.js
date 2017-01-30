@@ -25,6 +25,7 @@ BankInterApp.config(['$stateProvider', '$urlRouterProvider', function($stateProv
 
                             'assets/pages/scripts/dashboard.min.js',
                             'js/controllers/DashboardController.js',
+                            'js/scripts/DashboardCharts.js'
                         ] 
                     });
                 }]
