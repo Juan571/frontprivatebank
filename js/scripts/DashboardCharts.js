@@ -10,7 +10,7 @@ var DashboardCharts = function(){
 	    google.charts.setOnLoadCallback(extracto_comparativa);
 	}
     //Valoración
-	function extracto_valoracion() {
+    function extracto_valoracion() {
 
         var data = new google.visualization.DataTable();
         data.addColumn('date', 'Month');
@@ -24,7 +24,7 @@ var DashboardCharts = function(){
             [new Date(2016, 4), 780000],
             [new Date(2016, 5), 880000],
             [new Date(2016, 6), 850000],
-            [new Date(2016, 7), 980000],
+            [new Date(2016, 7), 1000000],
             [new Date(2016, 8), 850000],
             [new Date(2016, 9), 800000],
             [new Date(2016, 10), 790000],
@@ -34,9 +34,9 @@ var DashboardCharts = function(){
         ]);
 
         var options = {
-            legend: {position: 'top'},
+            legend: {position: 'none'},
             pointSize: 8,
-            vAxis: {format: 'currency'},
+            vAxis: {title:'EUR', format: 'decimal', viewWindowMode: 'explicited',textStyle:{fontSize:9} },
             series:{ 0: {color:'#578EBE', pointShape:'diamond'}},
             hAxis: {
                 ticks: [new Date(2016, 0), new Date(2016, 1), new Date(2016, 2), new Date(2016, 3),
@@ -51,33 +51,33 @@ var DashboardCharts = function(){
     }
 
     //extracto_rentabilidad
-   	function extracto_rentabilidad() {
+    function extracto_rentabilidad() {
 
         var data = new google.visualization.DataTable();
         data.addColumn('date', 'Month');
-        data.addColumn('number', 'extracto_rentabilidad');
+        data.addColumn('number', 'Rentabilidad');
 
         data.addRows([
-            [new Date(2016, 0), 1250],
-            [new Date(2016, 1), 1870],
-            [new Date(2016, 2), 1670],
-            [new Date(2016, 3), 2250],
-            [new Date(2016, 4), 2450],
-            [new Date(2016, 5), 2850],
-            [new Date(2016, 6), 2520],
-            [new Date(2016, 7), 2590],
-            [new Date(2016, 8), 2900],
-            [new Date(2016, 9), 2950],
-            [new Date(2016, 10), 1850],
-            [new Date(2016, 11), 1990],
-            [new Date(2017, 0), 2490]
+            [new Date(2016, 0), 1],
+            [new Date(2016, 1), 0.9],
+            [new Date(2016, 2), 2],
+            [new Date(2016, 3), 2.2],
+            [new Date(2016, 4), 2.1],
+            [new Date(2016, 5), 2.3],
+            [new Date(2016, 6), 2.4],
+            [new Date(2016, 7), 2.8],
+            [new Date(2016, 8), 2.9],
+            [new Date(2016, 9), 3],
+            [new Date(2016, 10), 2.6],
+            [new Date(2016, 11), 2.7],
+            [new Date(2017, 0), 2.3]
 
         ]);
 
         var options = {
-            legend: {position: 'top'},
+            legend: {position: 'none'},
             pointSize: 8,
-            vAxis: {format: 'currency'},
+            vAxis: {format:'#\'%\''},
             series:{ 0: {color:'#5C9BD1'}},
             hAxis: {
                 ticks: [new Date(2016, 0), new Date(2016, 1), new Date(2016, 2), new Date(2016, 3),
@@ -112,7 +112,7 @@ var DashboardCharts = function(){
     function extracto_posicion() {
         var data = google.visualization.arrayToDataTable([
 
-            ['Entity', 'Population', { role: 'style' }],
+            ['Entity', 'Position(EUR)', { role: 'style' }],
             ['Iberdrola', 8100, 'color: violet'],
             ['Fondo Super Renta, CA', 3200, 'color: blue'],
             ['Santander', 2500, 'color: red'],
@@ -123,10 +123,12 @@ var DashboardCharts = function(){
             legend:{position: 'none'},
             hAxis: {
                 title: 'Position',
-                minValue: 0
+                minValue: 0,
+                format: 'decimal'
             },
             vAxis: {
-                title: 'Entity'
+
+                textStyle:{fontSize:9}
             }
         };
 
@@ -142,24 +144,21 @@ var DashboardCharts = function(){
 
         var data = google.visualization.arrayToDataTable([
             ['Label', 'Value'],
-            ['Riesgo', 68]
+            ['Riesgo', 80]
         ]);
 
         var options = {
-            redFrom: 90, redTo: 100,
-            yellowFrom:75, yellowTo: 90,
-            greenFrom:0, greenTo: 75,
-            minorTicks: 5
+            redFrom: 80, redTo: 100,
+            yellowFrom:40, yellowTo: 80,
+            greenFrom:0, greenTo: 40,
+            minorTicks: 3
+            //majorTicks: ['0','5','15','35','55','100']
         };
 
         var chart = new google.visualization.Gauge(document.getElementById('extracto_riesgo'));
 
         chart.draw(data, options);
 
-        setInterval(function() {
-            data.setValue(0, 1, 40 + Math.round(60 * Math.random()));
-            chart.draw(data, options);
-        }, 13000);
     }
 
     //extracto_comparativa-benchmark
@@ -178,7 +177,7 @@ var DashboardCharts = function(){
             [new Date(2016, 4), 780000, 750000],
             [new Date(2016, 5), 880000, 890000],
             [new Date(2016, 6), 850000, 855000],
-            [new Date(2016, 7), 1000000, 970000],
+            [new Date(2016, 7), 980000, 970000],
             [new Date(2016, 8), 850000, 750000],
             [new Date(2016, 9), 800000, 850000],
             [new Date(2016, 10), 790000, 770000],
@@ -193,10 +192,10 @@ var DashboardCharts = function(){
             vAxis:{format: 'currency'},
             hAxis: {
                 ticks:
-                        [new Date(2016, 0), new Date(2016, 1), new Date(2016, 2), new Date(2016, 3),
-                            new Date(2016, 4),  new Date(2016, 5), new Date(2016, 6), new Date(2016, 7),
-                            new Date(2016, 8), new Date(2016, 9), new Date(2016, 10), new Date(2016, 11), new Date(2017, 0)
-                        ]
+                    [new Date(2016, 0), new Date(2016, 1), new Date(2016, 2), new Date(2016, 3),
+                        new Date(2016, 4),  new Date(2016, 5), new Date(2016, 6), new Date(2016, 7),
+                        new Date(2016, 8), new Date(2016, 9), new Date(2016, 10), new Date(2016, 11), new Date(2017, 0)
+                    ]
             },
         };
 
@@ -204,7 +203,7 @@ var DashboardCharts = function(){
 
         chart.draw(data, options);
     }
-    
+
     return {
     	init : function(){
     		initGooogleCharts();
