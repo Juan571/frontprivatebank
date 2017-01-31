@@ -9,8 +9,11 @@ var DashboardCharts = function(){
 	    google.charts.setOnLoadCallback(extracto_riesgo);
 	    google.charts.setOnLoadCallback(extracto_comparativa);
 	}
+
+
     //Valoración
     function extracto_valoracion() {
+        var formatterEUR = new google.visualization.NumberFormat({suffix: 'EUR', decimalSymbol: '.'});
 
         var data = new google.visualization.DataTable();
         data.addColumn('date', 'Month');
@@ -32,11 +35,16 @@ var DashboardCharts = function(){
             [new Date(2017, 0), 920000]
 
         ]);
-
+        formatterEUR.format(data, 1); // Apply formatter to second column
         var options = {
+            chartArea: {
+                top: 10,
+                left: 80,
+                right: 5
+            },
             legend: {position: 'none'},
             pointSize: 8,
-            vAxis: {title:'EUR', format: 'decimal', viewWindowMode: 'explicited',textStyle:{fontSize:9} },
+            vAxis: {title:'EUR', viewWindowMode: 'explicited',textStyle:{fontSize:9} },
             series:{ 0: {color:'#578EBE', pointShape:'diamond'}},
             hAxis: {
                 ticks: [new Date(2016, 0), new Date(2016, 1), new Date(2016, 2), new Date(2016, 3),
@@ -45,6 +53,7 @@ var DashboardCharts = function(){
                 ]
             },
         };
+
         var chart = new google.visualization.LineChart(document.getElementById('extracto_valoracion'));
 
         chart.draw(data, options);
@@ -52,7 +61,7 @@ var DashboardCharts = function(){
 
     //extracto_rentabilidad
     function extracto_rentabilidad() {
-
+        var formatterPercent = new google.visualization.NumberFormat({suffix: '%', decimalSymbol: '.'});
         var data = new google.visualization.DataTable();
         data.addColumn('date', 'Month');
         data.addColumn('number', 'Rentabilidad');
@@ -73,9 +82,16 @@ var DashboardCharts = function(){
             [new Date(2017, 0), 2.3]
 
         ]);
+        formatterPercent.format(data,1);
 
         var options = {
+            chartArea: {
+                top: 10,
+                left: 50,
+                right: 5
+            },
             legend: {position: 'none'},
+
             pointSize: 8,
             vAxis: {format:'#\'%\''},
             series:{ 0: {color:'#5C9BD1'}},
@@ -101,7 +117,13 @@ var DashboardCharts = function(){
         ]);
 
         var options = {
-            is3D: true,
+            chartArea: {
+                top: 10,
+                left: 5,
+                right: 5,
+                bottom: 5
+            },
+            is3D: true
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
@@ -110,6 +132,8 @@ var DashboardCharts = function(){
 
     //Posición
     function extracto_posicion() {
+        var formatterEUR = new google.visualization.NumberFormat({suffix: 'EUR', decimalSymbol: '.'});
+
         var data = google.visualization.arrayToDataTable([
 
             ['Entity', 'Position(EUR)', { role: 'style' }],
@@ -119,10 +143,17 @@ var DashboardCharts = function(){
             ['Bonos USA', 2000, 'color: pink'],
         ]);
 
+        formatterEUR.format(data,1);
+
         var options = {
+            chartArea: {
+                top: 10,
+                left: 90,
+                right: 5
+            },
             legend:{position: 'none'},
             hAxis: {
-                title: 'Position',
+                title: 'Posición (EUR)',
                 minValue: 0,
                 format: 'decimal'
             },
@@ -148,6 +179,10 @@ var DashboardCharts = function(){
         ]);
 
         var options = {
+            chartArea: {
+                top: 10,
+                right: 5
+            },
             redFrom: 80, redTo: 100,
             yellowFrom:40, yellowTo: 80,
             greenFrom:0, greenTo: 40,
@@ -163,6 +198,8 @@ var DashboardCharts = function(){
 
     //extracto_comparativa-benchmark
     function extracto_comparativa() {
+
+        var formatterEUR = new google.visualization.NumberFormat({suffix: 'EUR', decimalSymbol: '.'});
 
         var data = new google.visualization.DataTable();
         data.addColumn('date', 'Month');
@@ -186,10 +223,18 @@ var DashboardCharts = function(){
 
         ]);
 
+        formatterEUR.format(data,1);
+        formatterEUR.format(data,2);
+
         var options = {
+            chartArea: {
+                top: 10,
+                left: 80,
+                right: 5
+            },
             legend:{position: 'top'},
-            pointSize: 8,
-            vAxis:{format: 'currency'},
+            pointSize: 6,
+            vAxis:{ title: 'EUR'},
             hAxis: {
                 ticks:
                     [new Date(2016, 0), new Date(2016, 1), new Date(2016, 2), new Date(2016, 3),
