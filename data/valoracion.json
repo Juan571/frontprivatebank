@@ -1,0 +1,72 @@
+[
+  {
+    "Producto": "ET ISHARES MSCI",
+    "Divisa": "EUR",
+    "ValorCoste": 49720,
+    "ValorActual": 52960,
+    "PlusValia_Minusvalia": 3240,
+    "percent": "2.25%",
+    "risk" : 0.40,
+    "tipo" : "Renta Variable",
+    "area_geografica" : "Zona Euro"
+  },
+  {
+    "Producto": "ET ISHARES MSCI",
+    "Divisa": "EUR",
+    "ValorCoste": 3595,
+    "ValorActual": 6995,
+    "PlusValia_Minusvalia": 1400,
+    "percent": "4.54%",
+    "risk" : 0.40,
+    "tipo" : "Renta Variable",
+    "area_geografica" : "Zona Euro"
+  },
+  {
+    "Producto": "ET ISHARES EURO DIVIDEND ",
+    "Divisa": "EUR",
+    "ValorCoste": 7550.00,
+    "ValorActual": 7725.00,
+    "PlusValia_Minusvalia": 175,
+    "percent": "4.57%",
+    "risk" : 0.40,
+    "tipo" : "Renta Variable",
+    "area_geografica" : "Zona Euro"
+    
+  },
+   {
+    "Producto": "AC MERLIN PROPERTIES SOCIMI S ",
+    "Divisa": "EUR",
+    "ValorCoste": 8083.96,
+    "ValorActual": 2900,
+    "PlusValia_Minusvalia": -183.96,
+    "percent": "4.36%",
+    "risk" : 0.40,
+    "tipo" : "Renta Variable",
+    "area_geografica" : "Zona Euro"
+    
+  },
+  {
+    "Producto": "AC ABERTIS INFRA CLASE A ",
+    "Divisa": "EUR",
+    "ValorCoste": 54540.00,
+    "ValorActual": 53140.00,
+    "PlusValia_Minusvalia": -1400.00,
+    "percent": "2.25%",
+    "risk" : 0.40,
+    "tipo" : "Renta Variable",
+    "area_geografica" : "Zona Euro"
+    
+  },
+   {
+    "Producto": "AC BOLSAS  Y MERCADOS ESPAÑOLES ",
+    "Divisa": "EUR",
+    "ValorCoste": 57800,
+    "ValorActual": 58010,
+    "PlusValia_Minusvalia": 210,
+    "percent": "2.46%",
+    "risk" : 0.40,
+    "tipo" : "Ahorro Previsión",
+    "area_geografica" : "Zona Euro"
+    
+  }
+]
