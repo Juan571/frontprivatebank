@@ -2,14 +2,37 @@ var DashboardCharts = function(){
 	
 	var initGooogleCharts = function(){
 		google.charts.load('current', {packages: ['corechart', 'line','gauge']});
-	    google.charts.setOnLoadCallback(extracto_valoracion);
-	    google.charts.setOnLoadCallback(extracto_rentabilidad);
-	    google.charts.setOnLoadCallback(extracto_diversificacion);
-	    google.charts.setOnLoadCallback(extracto_posicion);
-	    google.charts.setOnLoadCallback(extracto_riesgo);
-	    google.charts.setOnLoadCallback(extracto_comparativa);
+	   
 	}
+    function init_extracto_valoracion(){
+        if(google.visualization===undefined) initGooogleCharts();
+        google.charts.setOnLoadCallback(extracto_valoracion);
+    }
+    function init_extracto_rentabilidad(){
+        if(google.visualization===undefined) initGooogleCharts();
+        google.charts.setOnLoadCallback(extracto_rentabilidad)
 
+    }
+    function init_extracto_diversificacion(){
+        if(google.visualization===undefined) initGooogleCharts();
+        google.charts.setOnLoadCallback(extracto_diversificacion)
+
+    }
+    function init_extracto_posicion(){
+        if(google.visualization===undefined) initGooogleCharts();
+        google.charts.setOnLoadCallback(extracto_posicion)
+
+    }
+    function init_extracto_riesgo(){
+        if(google.visualization===undefined) initGooogleCharts();
+        google.charts.setOnLoadCallback(extracto_riesgo)
+
+    }
+    function init_extracto_comparativa(){
+        if(google.visualization===undefined) initGooogleCharts();
+        google.charts.setOnLoadCallback(extracto_comparativa)
+
+    }
 
     //Valoración
     function extracto_valoracion() {
@@ -54,10 +77,16 @@ var DashboardCharts = function(){
             },
         };
 
-        var chart = new google.visualization.LineChart(document.getElementById('extracto_valoracion'));
+        valoracion_elements = document.getElementsByClassName('extracto_valoracion');
+        angular.forEach(valoracion_elements,function(v,k){
+                var chart = new google.visualization.LineChart(v);    
+                chart.draw(data, options);
+        })
+        
 
-        chart.draw(data, options);
+        
     }
+
 
     //extracto_rentabilidad
     function extracto_rentabilidad() {
@@ -252,7 +281,26 @@ var DashboardCharts = function(){
     return {
     	init : function(){
     		initGooogleCharts();
-    	}
+    	},
+        init_extracto_valoracion : function(){
+            init_extracto_valoracion();
+        },
+        init_extracto_rentabilidad : function(){
+            init_extracto_rentabilidad();
+        },
+        init_extracto_diversificacion : function(){
+            init_extracto_diversificacion();
+        },
+        init_extracto_posicion : function(){
+            init_extracto_posicion();
+        },
+        init_extracto_riesgo : function(){
+            init_extracto_riesgo();
+        },
+        init_extracto_comparativa : function(){
+            init_extracto_comparativa();
+        }
+
     }
 	
 }
