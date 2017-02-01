@@ -1,0 +1,13 @@
+'use strict';
+/**
+ * Change URL for your own configuration
+ */
+angular.module('CollateralApp').constant('URL_CONFIG', {
+    API_URL: "http://api-url/api",
+    SERVICE_LOGIN_URL: "http://api-url/api",
+    /* Web socket paramaters */ 
+    RECONNECT_TIMEOUT :  30000,
+    SOCKET_URL : "http://localhost:8080/CCM/servlet/ccm_websocket",
+    WS_TOPIC   : "/broadcast/messages",
+    WS_BROKER  : "/app/broker"
+});

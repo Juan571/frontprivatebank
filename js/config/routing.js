@@ -31,7 +31,26 @@ BankInterApp.config(['$stateProvider', '$urlRouterProvider', function($stateProv
                 }]
             }
         })
-
+        .state('valoracion', {
+            url: "/valoracion",
+            templateUrl: "views/wallet/valoracion.html",            
+            data: {pageTitle: 'Extracto Mis Inversiones'},
+            controller: "ValoracionController",
+            resolve: {
+                deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        name: 'Hola',
+                        insertBefore: '#ng_load_plugins_before', 
+                        // load the above css files before a LINK element with this ID. Dynamic CSS files must be loaded between core and theme css files
+                        files: [
+                            'js/controllers/ValoracionController.js',
+                            'js/services/ValoracionService.js',
+                            
+                        ] 
+                    });
+                }]
+            }
+        });
 
    
 

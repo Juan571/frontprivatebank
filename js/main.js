@@ -7,7 +7,8 @@ var BankInterApp = angular.module("BankInterApp", [
     "ui.router", 
     "ui.bootstrap", 
     "oc.lazyLoad",  
-    "ngSanitize"
+    "ngSanitize",
+    "LocalStorageModule"
 ]); 
 
 /* Configure ocLazyLoader(refer: https://github.com/ocombe/ocLazyLoad) */
@@ -92,6 +93,112 @@ BankInterApp.controller('AppController', ['$scope', '$rootScope', function($scop
         //App.initComponents(); // init core components
         //Layout.init(); //  Init entire layout(header, footer, sidebar, etc) on page load if the partials included in server side instead of loading with ng-include directive 
     });
+}]);
+
+
+
+/* ###### Common Request Service #####*/
+
+//interceptor all request
+BankInterApp.factory('httpGlobalInterceptor', ['$q', '$injector', 'localStorageService', '$log', function ($q, $injector, $localStorage, $log) {
+    return {
+        'request': function (config) {
+            config.headers = config.headers || {};
+            if ( !angular.isUndefined($localStorage.get("CMS-AuthorizationToken")) ) {
+
+                config.headers["CMS-AuthorizationToken"] = $localStorage.get("CMS-AuthorizationToken");
+
+            }
+
+            return config;
+        },
+        'requestError': function (rejection) {
+
+            $injector.get('toastr').error("Error sending data to the server", "Server Error", {closeButton: true});
+            $log.warn("There is an error. Reason:");
+            $log.debug("http_code: " + rejection.status + ", Response: " + rejection.statusText);
+
+            if (canRecover(rejection)) {
+                return responseOrNewPromise
+            }
+            return $q.reject(rejection);
+        },
+        'response': function (response) {
+
+            return response;
+        },
+        'responseError': function (response) {
+
+            $injector.get('toastr').error("Acess to the requested resource has been denied", "Unauthorized Error", {closeButton: true});
+            $log.error("http_code: " + response.status + ", Response: " + response.statusText);
+
+            if ( response.status === 401 || response.status === 403 || response.status === -1 ) {
+
+                $injector.get('$state').go('login');
+            }
+            return $q.reject(response);
+        }
+    };
+}]);
+
+BankInterApp.factory('$request', ['$rootScope', '$http', 'URL_CONFIG', '$log', function ($rootScope, $http, URL_CONFIG, $log) {
+
+
+    var request = {};
+
+    request.getFile = function (urlRelative) {
+        window.open(URL_CONFIG.API_URL + '' + urlRelative, "_blank");
+    };
+
+    request.get = function (urlRelative, dataRequest) {
+        var config_request = {};
+        if (!!dataRequest && typeof dataRequest === 'object') {
+            config_request = {
+                params: dataRequest
+            };
+        }
+
+        return $http.get(URL_CONFIG.API_URL + '' + urlRelative, config_request);
+
+    }
+
+    request.post = function (urlRelative, dataRequest) {
+
+        return $http.post(URL_CONFIG.API_URL + '' + urlRelative, dataRequest);
+
+    }
+
+    request.put = function (urlRelative, dataRequest) {
+
+        return $http.put(URL_CONFIG.API_URL + '' + urlRelative, dataRequest);
+
+    }
+
+    request.delete = function (urlRelative, dataRequest) {
+        var config_request = {};
+        if (!!dataRequest && typeof dataRequest === 'object') {
+            config_request =
+            {
+                data: dataRequest
+            };
+        }
+
+        //return $http.delete( URL_CONFIG.API_URL + '' + urlRelative, config_request);
+        return $http.post(URL_CONFIG.API_URL + '' + urlRelative, dataRequest);
+
+    }
+
+    return request;
+
+}]);
+
+/*Default Setup $http Service*/
+BankInterApp.config(['$httpProvider', function ($httpProvider) {
+
+    //default config all requets
+    $httpProvider.defaults.headers.common['Accept'] = 'application/json, text/javascript';
+    $httpProvider.interceptors.push('httpGlobalInterceptor');
+
 }]);
 
 /***
