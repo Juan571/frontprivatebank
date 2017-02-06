@@ -6,3 +6,4 @@
 *.ipr
 *.iws
 js/services/ConfigUrlService.js
+*.log
