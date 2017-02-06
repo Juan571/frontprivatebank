@@ -71,7 +71,7 @@ BankInterApp.config(['$stateProvider', '$urlRouterProvider', function($stateProv
                             'assets/pages/scripts/dashboard.min.js',
 
                             'js/controllers/DiversificacionController.js',
-                            'js/Services/DiversificacionService.js',
+                            'js/services/DiversificacionService.js',
                             'js/scripts/DiversificacionCharts.js'
                         ]
                     });
