@@ -51,8 +51,33 @@ BankInterApp.config(['$stateProvider', '$urlRouterProvider', function($stateProv
                     });
                 }]
             }
+        })
+        .state('diversificacion', {
+            url: "/diversificacion",
+            templateUrl: "views/diversificacion.html",
+            data: {pageTitle: 'Diversificacion'},
+            controller: "DiversificacionController",
+            resolve: {
+                deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        name: 'BankInterApp',
+                        insertBefore: '#ng_load_plugins_before',
+                        // load the above css files before a LINK element with this ID. Dynamic CSS files must be loaded between core and theme css files
+                        files: [
+                            'assets/global/plugins/morris/morris.css',
+                            'assets/global/plugins/morris/morris.min.js',
+                            'assets/global/plugins/morris/raphael-min.js',
+                            'assets/global/plugins/jquery.sparkline.min.js',
+                            'assets/pages/scripts/dashboard.min.js',
+
+                            'js/controllers/DiversificacionController.js',
+                            'js/Services/DiversificacionService.js',
+                            'js/scripts/DiversificacionCharts.js'
+                        ]
+                    });
+                }]
+            }
         });
 
-   
 
 }]);

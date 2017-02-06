@@ -1,0 +1,187 @@
+<!-- BEGIN PAGE HEADER-->
+<div class="page-bar">
+    <ul class="page-breadcrumb nopadding-ul">
+        
+        <li>
+            <a href="#">Antonio Sans de los Monteros</a>
+        </li>
+    </ul>
+   <div class="page-toolbar ">
+   <ul class="inline nopadding-ul"  >
+        <li>
+            <img src="assets/layouts/layout/img/avatar1.jpg" style=" width: 28px; border-radius: 20px !important;">
+        </li>
+        <li>
+            <a href="#">Tu Gestor : Manuel Lopez Rubio </a>
+        </li>
+    </ul>
+        <div id="btn-contact-support" class="btn-group pull-right">
+            <button class="btn yellow">
+            <i layouts="" layout="" img="" class="icon-envelope"></i>
+  </button><button class="btn green-meadow">
+            <i layouts="" layout="" img="" class="icon-call-out"></i>
+  </button><button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" dropdown-menu-hover="" data-delay="1000" data-close-others="true" aria-expanded="false"> Actions
+                <i class="fa fa-angle-down"></i>
+            </button>
+            <ul class="dropdown-menu pull-right" role="menu">
+                <li>
+                    <a href="#">
+                        <i class="icon-user"></i> New User </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="icon-present"></i> New Event
+                        <span class="badge badge-success">4</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="icon-basket"></i> New order </a>
+                </li>
+                <li class="divider"> </li>
+                <li>
+                    <a href="#">
+                        <i class="icon-flag"></i> Pending Orders
+                        <span class="badge badge-danger">4</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="icon-users"></i> Pending Users
+                        <span class="badge badge-warning">12</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+</div>
+<!-- END PAGE HEADER-->
+<!-- BEGIN MAIN CONTENT -->
+<div ng-controller="DiversificacionController">
+    
+    <!-- BEGIN DASHBOARD STATS -->
+  
+    <!-- END DASHBOARD STATS -->
+    <div class="row">
+     <style>
+    #extracto_riesgo table{
+        margin-left: auto!important;
+        margin-right: auto!important;
+    }
+</style>
+<div class="portlet light">
+    <div class="row">
+
+
+        <div class="col-md-6 box-dashboard ">
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="fa fa-pie-chart font-dark font-yellow-gold"></i>
+                        <span class="caption-subject bold uppercase font-yellow-gold">
+                                <a>Diversificación por tipo de Activo</a>
+                        </span>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                        <div id="activo_piechart"></div>
+                        </div>
+                        <div class="col-md-6">
+                            <div id="activo_table"></div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 box-dashboard ">
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="fa fa-pie-chart font-dark font-yellow-gold"></i>
+                        <span class="caption-subject bold uppercase font-yellow-gold">
+                                <a>Diversificación por Tipo de Divisa</a>
+                        </span>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div id="divisa_piechart"></div>
+                        </div>
+                        <div class="col-md-6">
+                            <div id="divisa_table"></div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 box-dashboard ">
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="fa fa-pie-chart font-dark font-yellow-gold"></i>
+                        <span class="caption-subject bold uppercase font-yellow-gold">
+                                <a href="#/diversificacion">Diversificación por area Geográfica</a>
+                        </span>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div id="area_piechart"></div>
+                        </div>
+                        <div class="col-md-6">
+                            <div id="area_table"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 box-dashboard ">
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="fa fa-pie-chart font-dark font-yellow-gold"></i>
+                        <span class="caption-subject bold uppercase font-yellow-gold">
+                                <a href="#/diversificacion">Diversificación por Sector</a>
+                        </span>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div id="sector_piechart"></div>
+                        </div>
+                        <div class="col-md-6">
+                            <div id="sector_table"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+
+    </div>
+</div>
+<script>
+ 
+</script>
+    </div>
+    
+   
+</div>
+<!-- END MAIN CONTENT -->
+<!-- BEGIN MAIN JS & CSS -->
+<script>
+    Dashboard.init();
+</script>
+<!-- BEGIN MAIN JS & CSS -->

@@ -1,0 +1,36 @@
+{
+  "divisa":
+  [
+    {
+      "tipo":"EUR",
+      "valor":642216.79
+    },
+    {
+      "tipo": "GBP",
+      "valor": 351145.39
+    }
+
+  ],
+  "activo":[
+    {
+      "tipo":"Fonddo de Inversion Mobiliaria",
+      "valor":993362.18
+    }
+  ],
+  "area":[
+    {
+      "tipo":"Europa(UK no Incluido)",
+      "valor":651705.87
+    },
+    {
+      "tipo":"Mundial",
+      "valor":341656.31
+    }
+  ],
+  "sector":[
+    {
+      "tipo":"Financiero",
+      "valor":993362.18
+    }
+  ]
+}
