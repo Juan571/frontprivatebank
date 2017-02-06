@@ -23,11 +23,11 @@ var DashboardCharts = function(){
         google.charts.setOnLoadCallback(extracto_posicion)
 
     }
-    function init_extracto_riesgo(){
+    /*function init_extracto_riesgo(){
         if(google.visualization===undefined) initGooogleCharts();
         google.charts.setOnLoadCallback(extracto_riesgo)
 
-    }
+    }*/
     function init_extracto_comparativa(){
         if(google.visualization===undefined) initGooogleCharts();
         google.charts.setOnLoadCallback(extracto_comparativa)
@@ -200,7 +200,46 @@ var DashboardCharts = function(){
     }
 
     //extracto_riesgo
-    function extracto_riesgo() {
+    function extracto_riesgo(valor){
+        var gauge = new RadialGauge({
+            renderTo: 'canvas-id',
+            border: true,
+            height: 200,
+            minValue: 0,
+            units: 'Riesgo',
+            value: 60,
+            valueInt: 1,
+            valueDec:0,
+            colorValueBoxBackground: 'transparent',
+            valueBoxStroke: 0,
+            valueBox: true,
+            maxValue: 100,
+            majorTicks: [
+                "0",
+                "10",
+                "20",
+                "30",
+                "40",
+                "50",
+                "60",
+                "70",
+                "80",
+                "90",
+                "100"
+            ],
+            minorTicks: 2,
+            strokeTicks: true,
+            highlights:[
+                {"from": 0, "to": 5, "color": "rgba(47, 184, 10, 0.99)"},
+                {"from": 5, "to": 15, "color": "rgba(82, 244, 37, 0.94)"},
+                {"from": 15, "to": 35, "color": "rgba(242, 235, 13, 0.96)"},
+                {"from": 35, "to": 55, "color": "rgba(228, 163, 12, 0.98)"},
+                {"from": 55, "to": 100, "color": "rgba(200, 50, 50, 1.75)"}
+            ]
+        }).draw();
+    }
+
+    /*function extracto_riesgo() {
 
         var data = google.visualization.arrayToDataTable([
             ['Label', 'Value'],
@@ -223,7 +262,7 @@ var DashboardCharts = function(){
 
         chart.draw(data, options);
 
-    }
+    }*/
 
     //extracto_comparativa-benchmark
     function extracto_comparativa() {
@@ -295,7 +334,7 @@ var DashboardCharts = function(){
             init_extracto_posicion();
         },
         init_extracto_riesgo : function(){
-            init_extracto_riesgo();
+            extracto_riesgo();
         },
         init_extracto_comparativa : function(){
             init_extracto_comparativa();

@@ -1,26 +1,29 @@
 <!-- BEGIN PAGE HEADER-->
 <div class="page-bar">
     <ul class="page-breadcrumb nopadding-ul">
-        
+
         <li>
             <a href="#">Antonio Sans de los Monteros</a>
         </li>
     </ul>
-   <div class="page-toolbar ">
-   <ul class="inline nopadding-ul"  >
-        <li>
-            <img src="assets/layouts/layout/img/avatar1.jpg" style=" width: 28px; border-radius: 20px !important;">
-        </li>
-        <li>
-            <a href="#">Tu Gestor : Manuel Lopez Rubio </a>
-        </li>
-   </ul>
-    <div id="btn-contact-support" class="btn-group pull-right">
+    <div class="page-toolbar ">
+        <ul class="inline nopadding-ul">
+            <li>
+                <img src="assets/layouts/layout/img/avatar1.jpg" style=" width: 28px; border-radius: 20px !important;">
+            </li>
+            <li>
+                <a href="#">Tu Gestor : Manuel Lopez Rubio </a>
+            </li>
+        </ul>
+        <div id="btn-contact-support" class="btn-group pull-right">
             <button class="btn yellow">
-            <i layouts="" layout="" img="" class="icon-envelope"></i>
-  </button><button class="btn green-meadow">
-            <i layouts="" layout="" img="" class="icon-call-out"></i>
-  </button><button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" dropdown-menu-hover="" data-delay="1000" data-close-others="true" aria-expanded="false"> Actions
+                <i layouts="" layout="" img="" class="icon-envelope"></i>
+            </button>
+            <button class="btn green-meadow">
+                <i layouts="" layout="" img="" class="icon-call-out"></i>
+            </button>
+            <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown"
+                    dropdown-menu-hover="" data-delay="1000" data-close-others="true" aria-expanded="false"> Actions
                 <i class="fa fa-angle-down"></i>
             </button>
             <ul class="dropdown-menu pull-right" role="menu">
@@ -28,7 +31,7 @@
                     <a href="#">
                         <i class="icon-basket"></i> New order </a>
                 </li>
-                <li class="divider"> </li>
+                <li class="divider"></li>
                 <li>
                     <a href="#">
                         <i class="icon-flag"></i> Pending Orders
@@ -38,122 +41,134 @@
             </ul>
         </div>
     </div>
-    
+
 </div>
 <!-- END PAGE HEADER-->
 <!-- BEGIN MAIN CONTENT -->
 <div ng-controller="DashboardController">
-<div class="row">
-     <style>
-        #extracto_riesgo table{
-            margin-left: auto!important;
-            margin-right: auto!important;
-        }
-    </style>
-<div class="portlet light">
     <div class="row">
-        <div class="col-md-4 box-dashboard ">
-            <div class="portlet light bordered">
-                <div class="portlet-title">
-                    <div class="caption">
-                        <i class="fa fa-eur font-dark font-yellow-gold"></i>
-                        <span class="caption-subject bold uppercase font-yellow-gold">
-                            <a href="#/valoracion"  >
+        <!--style>
+           #extracto_riesgo table{
+               margin-left: auto!important;
+               margin-right: auto!important;
+           }
+       </style-->
+        <div class="portlet light">
+            <div class="row">
+                <div class="col-md-4 box-dashboard ">
+                    <div class="portlet light bordered">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                <i class="fa fa-eur font-dark font-yellow-gold"></i>
+                                <span class="caption-subject bold uppercase font-yellow-gold">
+                            <a href="#/valoracion">
                                 Valoración de Cartera
                             </a>
                         </span>
+                            </div>
+                        </div>
+                        <div class="portlet-body">
+                            <div class="extracto_valoracion"></div>
+                        </div>
                     </div>
                 </div>
-                <div class="portlet-body">
-                    <div class="extracto_valoracion"></div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 box-dashboard ">
-            <div class="portlet light bordered">
-                <div class="portlet-title">
-                    <div class="caption">
-                        <i class="fa fa-line-chart font-dark font-yellow-gold"></i>
-                        <span class="caption-subject bold uppercase font-yellow-gold">
+                <div class="col-md-4 box-dashboard ">
+                    <div class="portlet light bordered">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                <i class="fa fa-line-chart font-dark font-yellow-gold"></i>
+                                <span class="caption-subject bold uppercase font-yellow-gold">
                            Rentabilidad Global
                         </span>
+                            </div>
+                        </div>
+                        <div class="portlet-body">
+                            <div id="extracto_rentabilidad"></div>
+                        </div>
                     </div>
                 </div>
-                <div class="portlet-body">
-                    <div id="extracto_rentabilidad"></div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 box-dashboard ">
-            <div class="portlet light bordered">
-                <div class="portlet-title">
-                    <div class="caption">
-                        <i class="fa fa-pie-chart font-dark font-yellow-gold"></i>
-                        <span class="caption-subject bold uppercase font-yellow-gold">
+                <div class="col-md-4 box-dashboard ">
+                    <div class="portlet light bordered">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                <i class="fa fa-pie-chart font-dark font-yellow-gold"></i>
+                                <span class="caption-subject bold uppercase font-yellow-gold">
                            Diversificación
                         </span>
+                            </div>
+                        </div>
+                        <div class="portlet-body">
+                            <div id="piechart_3d"></div>
+                        </div>
                     </div>
                 </div>
-                <div class="portlet-body">
-                    <div id="piechart_3d"></div>
-                </div>
             </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-4 box-dashboard">
-            <div class="portlet light bordered">
-                <div class="portlet-title">
-                    <div class="caption">
-                        <i class="fa fa-bar-chart font-dark font-yellow-gold"></i>
-                        <span class="caption-subject bold uppercase font-yellow-gold">
+            <div class="row">
+                <div class="col-md-4 box-dashboard">
+                    <div class="portlet light bordered">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                <i class="fa fa-bar-chart font-dark font-yellow-gold"></i>
+                                <span class="caption-subject bold uppercase font-yellow-gold">
                            Posición
                         </span>
+                            </div>
+                        </div>
+                        <div class="portlet-body">
+                            <div id="extracto_posicion"></div>
+                        </div>
                     </div>
                 </div>
-                <div class="portlet-body">
-                    <div id="extracto_posicion"></div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 box-dashboard">
-            <div class="portlet light bordered">
-                <div class="portlet-title">
-                    <div class="caption">
-                        <i class="fa fa-warning font-dark font-yellow-gold"></i>
-                        <span class="caption-subject bold uppercase font-yellow-gold">
+                <div class="col-md-4 box-dashboard">
+                    <div class="portlet light bordered">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                <i class="fa fa-warning font-dark font-yellow-gold"></i>
+                                <span class="caption-subject bold uppercase font-yellow-gold">
                            Riesgo
                         </span>
+                            </div>
+                        </div>
+                        <div class="portlet-body">
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <canvas id="canvas-id" data-type="radial-gauge"></canvas>
+                                </div>
+
+                                <div class="col-md-5">
+                                    <table style="font-size: 9px;">
+                                        <tr><td><span style="border-radius: 50%; background-color: rgba(200, 50, 50, 1.75); display: block; width: 10px;height: 10px;"></span></td><td>Muy Alto (55% - 100%)</td></tr>
+                                        <tr><td><span style="border-radius: 50%; background-color: rgba(228, 163, 12, 0.98); display: block; width: 10px;height: 10px;"></span></td><td>Medio (35% - 55%)</td></tr>
+                                        <tr><td><span style="border-radius: 50%; background-color: rgba(242, 235, 13, 0.96); display: block; width: 10px;height: 10px;"></span></td><td>Medio (25% - 35%)</td></tr>
+                                        <tr><td><span style="border-radius: 50%; background-color: rgba(82, 244, 37, 0.94); display: block; width: 10px;height: 10px;"></span></td><td>Reducido (5% - 25%)</td></tr>
+                                        <tr><td><span style="border-radius: 50%; background-color: rgba(47, 184, 10, 0.99); display: block; width: 10px;height: 10px;"></span></td><td>Muy Reducido (0% - 5%)</td></tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="portlet-body">
-                    <div id="extracto_riesgo"></div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 box-dashboard">
-            <div class="portlet light bordered">
-                <div class="portlet-title">
-                    <div class="caption">
-                        <i class="fa fa-area-chart font-dark font-yellow-gold"></i>
-                        <span class="caption-subject bold uppercase font-yellow-gold">
+                <div class="col-md-4 box-dashboard">
+                    <div class="portlet light bordered">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                <i class="fa fa-area-chart font-dark font-yellow-gold"></i>
+                                <span class="caption-subject bold uppercase font-yellow-gold">
                            Comparativa - Benchmark
                         </span>
+                            </div>
+                        </div>
+                        <div class="portlet-body">
+                            <div id="extracto_comparativa"></div>
+                        </div>
                     </div>
-                </div>
-                <div class="portlet-body">
-                    <div id="extracto_comparativa"></div>
                 </div>
             </div>
         </div>
+
     </div>
-</div>
-<script>
- 
-</script>
-    </div>
-    
-   
+
+
 </div>
 <!-- END MAIN CONTENT -->
 <!-- BEGIN MAIN JS & CSS -->

@@ -9,6 +9,7 @@ BankInterApp = angular.module('BankInterApp').controller('DashboardController', 
 		DashboardCharts().init_extracto_posicion();
 		DashboardCharts().init_extracto_riesgo();
 		DashboardCharts().init_extracto_comparativa();
+
     });
 
     // set sidebar closed and body solid layout mode
