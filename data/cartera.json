@@ -12,7 +12,11 @@
     "Total actual": "109.340,00",
     "Dif. total": "8.680,00",
     "Dif. %": "8,6%",
-    "Div.%": 18.77
+    "Div.%": 18.77,
+    "Tipo Activo": "",
+    "Sector":"",
+    "Divisa":"",
+    "Area Geografica":""
   },
   {
     "Fecha y Hora Valoración": "1/25/17 17:35",
@@ -27,7 +31,11 @@
     "Total actual": "91.750,00",
     "Dif. total": "4.090,00",
     "Dif. %": "4,7%",
-    "Div.%": 6
+    "Div.%": 6,
+    "Tipo Activo": "",
+    "Sector":"",
+    "Divisa":"",
+    "Area Geografica":""
   },
   {
     "Fecha y Hora Valoración": "1/25/17 0:00",
@@ -42,7 +50,11 @@
     "Total actual": "188.870,47",
     "Dif. total": "-377.74",
     "Dif. %": "-0.2",
-    "Div.%": 13.18
+    "Div.%": 13.18,
+    "Tipo Activo": "",
+    "Sector":"",
+    "Divisa":"",
+    "Area Geografica":""
   },
   {
     "Fecha y Hora Valoración": "1/25/17 0:00",
@@ -57,7 +69,11 @@
     "Total actual": "185.871,71",
     "Dif. total": "1.620,37",
     "Dif. %": "0.88",
-    "Div.%": 12.97
+    "Div.%": 12.97,
+    "Tipo Activo": "",
+    "Sector":"",
+    "Divisa":"",
+    "Area Geografica":""
   },
   {
     "Fecha y Hora Valoración": "1/25/17 0:00",
@@ -72,7 +88,11 @@
     "Total actual": "607.404,02",
     "Dif. total": "1.301,30",
     "Dif. %": "0.21",
-    "Div.%": 42.38
+    "Div.%": 42.38,
+    "Tipo Activo": "",
+    "Sector":"",
+    "Divisa":"",
+    "Area Geografica":""
   },
 
   {
@@ -87,7 +107,11 @@
     "ValorMercado": 300560.48,
     "Ganancio o Pérdida no realizada": 19721.328,
     "Evolución": "7,02%",
-    "% del Activo Invertido": "30,26%"
+    "% del Activo Invertido": "30,26%",
+    "Tipo Activo": "",
+    "Sector":"",
+    "Divisa":"",
+    "Area Geografica":""
   },
   {
     "Fecha": "1/25/17 0:00",
@@ -101,6 +125,10 @@
     "ValorMercado": 278791.8803,
     "Ganancio o Pérdida no realizada": 19123.08236,
     "Evolución": "9,58%",
-    "% del Activo\n Invertido": "35,35%"
+    "% del Activo\n Invertido": "35,35%",
+    "Tipo Activo": "",
+    "Sector":"",
+    "Divisa":"",
+    "Area Geografica":""
   }
 ]

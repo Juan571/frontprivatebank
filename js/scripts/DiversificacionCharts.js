@@ -21,7 +21,8 @@ var DiversificacionCharts = function(){
 
         var options = {
             is3D: true,
-            legend: 'none'
+            legend: 'none',
+            colors: ['#4286f4', '#f442b9']
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('divisa_piechart'));
@@ -40,7 +41,11 @@ var DiversificacionCharts = function(){
             'tableCell': 'celda-tabla',
             'rowNumberCell': ''};
 
-        var options = {'allowHtml': true, 'cssClassNames': cssClassNames};
+        var options = {
+            'allowHtml': true,
+            'cssClassNames': cssClassNames
+
+        };
 
         var data2 = new google.visualization.DataTable();
 
@@ -53,6 +58,11 @@ var DiversificacionCharts = function(){
             ['GBP',  {v: 351145.39, f: '351.145.39'}, '100%']
         ]);
         var table = new google.visualization.Table(document.getElementById('divisa_table'));
+
+        var formatter = new google.visualization.ColorFormat();
+        formatter.addRange('EUR','EUR', 'white','orange');
+        formatter.addRange('GBP','GBP', 'red', '#33ff33');
+        formatter.format(data2, 0); // Apply formatter to second column
 
         table.draw(data2, options);
     }
